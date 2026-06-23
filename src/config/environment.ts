@@ -57,8 +57,7 @@ const dbPort = parseNumber(process.env.DB_PORT, 5432)
 const dbName = process.env.DB_NAME || "postgres"
 const dbUser = process.env.DB_USER || "postgres"
 const dbPassword = process.env.DB_PASSWORD || "postgres"
-const dbConnectionString =
-    process.env.PG_CONNECTION_STRING || `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}`
+const dbConnectionString = `postgres://${dbUser}:${dbPassword}@${dbHost}:${dbPort}/${dbName}?sslmode=disable`
 
 const config: AppConfig = {
     host: process.env.HOST || "0.0.0.0",
