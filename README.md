@@ -1,6 +1,5 @@
 # Fastify TypeScript Starter
 
-
 A production-oriented Fastify backend template built with TypeScript, PostgreSQL, Kysely, `pg-boss`, and a modular feature-first structure.
 
 This repository is intended to be a public backend starter for engineers and teams who want a serious foundation without inheriting unnecessary framework complexity. It is designed to be understandable, composable, and durable under real product development, not just convenient for the first few endpoints.
