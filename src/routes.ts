@@ -1,5 +1,6 @@
 import type { FastifyInstance, FastifyPluginAsync } from "fastify"
 import rootRoutes from "#app/base/routes.js"
+import testItemRoutes from "#app/test-items/routes.js"
 
 const routes: FastifyPluginAsync = async (app: FastifyInstance) => {
     app.setNotFoundHandler(async (_request, reply) => {
@@ -8,6 +9,7 @@ const routes: FastifyPluginAsync = async (app: FastifyInstance) => {
     })
 
     await app.register(rootRoutes)
+    await app.register(testItemRoutes, { prefix: "/v1" })
 }
 
 export default routes
