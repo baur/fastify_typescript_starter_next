@@ -1,0 +1,27 @@
+services:
+  database:
+    image: "postgres:18.3-trixie"
+    container_name: db
+    env_file: ".env"
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: "${DB_NAME}"
+      POSTGRES_USER: "${DB_USER}"
+    ports:
+      - 5432:5432
+    expose:
+      - "5432"
+    volumes:
+      - "starter_db_data:/var/lib/postgresql"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "${DB_NAME}", "-U", "${DB_USER}"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    networks:
+      - starter
+volumes:
+  starter_db_data:
+
+networks:
+  starter:
