@@ -328,11 +328,11 @@ Common commands for day-to-day development:
 
 ```sh
 make dev
-yarn dev
-yarn build
-yarn test
-yarn check
-yarn format
+npm run dev
+npm run build
+npm test
+npm run check
+npm run format
 ```
 
 ### Docker Services

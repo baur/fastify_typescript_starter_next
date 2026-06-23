@@ -3,7 +3,7 @@
         "quickfix.biome": "explicit",
         "source.organizeImports.biome": "explicit"
     },
-    "cSpell.words": ["knexfile", "misbah", "pgerr", "setex", "trttech", "typebox", "yarnrc"],
+    "cSpell.words": ["knexfile", "misbah", "pgerr", "setex", "trttech", "typebox"],
     "[javascript]": {
         "editor.defaultFormatter": "biomejs.biome"
     },

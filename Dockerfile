@@ -3,23 +3,20 @@ FROM node:24-trixie AS base
 
 FROM base AS dev
 WORKDIR /app
-COPY .yarn ./.yarn
-COPY .yarnrc.yml package.json yarn.lock ./
-RUN yarn install
-RUN npm install -g tsx
-CMD ["yarn", "dev"]
+COPY package.json package-lock.json ./
+RUN npm ci
+CMD ["npm", "run", "dev"]
 
 FROM base AS deps
 WORKDIR /app
-COPY .yarn ./.yarn
-COPY .yarnrc.yml package.json yarn.lock ./
-RUN yarn workspaces focus --production
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
 
 FROM base AS build
 WORKDIR /app
 COPY . .
-RUN yarn install
-RUN yarn build
+RUN npm ci
+RUN npm run build
 
 FROM runner AS prod
 WORKDIR /app
